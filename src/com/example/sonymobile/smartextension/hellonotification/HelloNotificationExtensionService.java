@@ -88,7 +88,10 @@ public class HelloNotificationExtensionService extends ExtensionService {
         // appropriate action.
         int eventId = intent.getIntExtra(Notification.Intents.EXTRA_EVENT_ID, -1);
         if (Notification.SourceColumns.ACTION_1.equals(action)) {
-            doAction1(eventId);
+        	Log.i("com.example.HelloNotificationPreferenceActivity", "Mandando mensagem pro firstHelp");
+        	Intent i = new Intent("org.embeddedlab.firsthelpExtension.HELLO_FIRSTHELP");
+    		i.putExtra("MESSAGE_FOR_FIRSTHELP", "Olá FirstHelp");
+    		sendBroadcast(i);
         } else if (Notification.SourceColumns.ACTION_2.equals(action)) {
             // Here we can take different actions depending on the accessory.
             if (advancedFeaturesSupported) {
@@ -97,7 +100,8 @@ public class HelloNotificationExtensionService extends ExtensionService {
                 Toast.makeText(this, "Action 2", Toast.LENGTH_LONG).show();
             }
         } else if (Notification.SourceColumns.ACTION_3.equals(action)) {
-            Toast.makeText(this, "Action 3", Toast.LENGTH_LONG).show();
+        	doAction1(eventId);
+//            Toast.makeText(this, "Action 3", Toast.LENGTH_LONG).show();
         }
     }
 

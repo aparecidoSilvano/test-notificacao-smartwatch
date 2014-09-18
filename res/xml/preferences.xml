@@ -16,9 +16,4 @@
         android:key="@string/preference_key_clear"
         android:title="@string/preference_option_clear" />
     
-    <!-- FirstHelp Events -->
-    <Preference
-        android:key="@string/preference_send_message_firstHelp"
-        android:title="@string/button_send_message_firstHelp" />
-
 </PreferenceScreen>

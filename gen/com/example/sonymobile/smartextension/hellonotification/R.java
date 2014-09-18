@@ -239,7 +239,6 @@ containing a value of this type.
     Otherwise it complains about no res folder. 
          */
         public static final int app_name=0x7f050000;
-        public static final int button_send_message_firstHelp=0x7f050014;
         public static final int button_send_notification=0x7f050013;
         public static final int clear_failure=0x7f050010;
         public static final int clear_success=0x7f05000f;
@@ -260,7 +259,6 @@ containing a value of this type.
         public static final int preference_option_read_me=0x7f050009;
         public static final int preference_option_read_me_txt=0x7f05000b;
         public static final int preference_option_send=0x7f050011;
-        public static final int preference_send_message_firstHelp=0x7f050015;
         /**  Name of source, shown in preferences 
          */
         public static final int source_name=0x7f050004;

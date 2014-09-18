@@ -29,6 +29,5 @@
     <string name="preference_option_send">Send notifications</string>
     <string name="preference_key_send">preference_key_send</string>
     <string name="button_send_notification">Send notification</string>
-    <string name="button_send_message_firstHelp">Manda mensagem pro firstHelp</string>
-    <string name="preference_send_message_firstHelp">preference_send_message</string>
+
 </resources>
