@@ -109,6 +109,7 @@ public class HelloNotificationPreferenceActivity extends PreferenceActivity {
             }
         });
         
+
         // Remove preferences that are not supported by the accessory.
         if (!ExtensionUtils.supportsHistory(getIntent())) {
             preference = findPreference(getString(R.string.preference_key_clear));

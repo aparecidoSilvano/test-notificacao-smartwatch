@@ -16,5 +16,4 @@
         android:key="@string/preference_key_clear"
         android:title="@string/preference_option_clear" />
     
-
 </PreferenceScreen>
