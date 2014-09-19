@@ -36,7 +36,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -110,20 +109,6 @@ public class HelloNotificationPreferenceActivity extends PreferenceActivity {
             }
         });
         
-        // Send a message of test for firstHelp
-        preference = findPreference(getString(R.string.preference_send_message_firstHelp));
-        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                // lança uma intent pro sistema e espera que o firstHelp receba.
-            	Log.i("com.example.HelloNotificationPreferenceActivity", "Mando mensagem pro firstHelp");
-            	Intent i = new Intent("org.embeddedlab.firsthelpExtension.HELLO_FIRSTHELP");
-        		i.putExtra("MESSAGE_FOR_FIRSTHELP", "Olá FirstHelp");
-        		sendBroadcast(i);
-                return true;
-            }
-        });
-
         // Remove preferences that are not supported by the accessory.
         if (!ExtensionUtils.supportsHistory(getIntent())) {
             preference = findPreference(getString(R.string.preference_key_clear));

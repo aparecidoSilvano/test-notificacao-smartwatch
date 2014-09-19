@@ -80,7 +80,7 @@ public class HelloNotificationExtensionReceiver extends BroadcastReceiver {
         // Build the notification.
         ContentValues eventValues = new ContentValues();
         eventValues.put(Notification.EventColumns.EVENT_READ_STATUS, false);
-        eventValues.put(Notification.EventColumns.DISPLAY_NAME, "feddback da execução");
+        eventValues.put(Notification.EventColumns.DISPLAY_NAME, "RESULTADO DA EXECUÇÃO");
         eventValues.put(Notification.EventColumns.MESSAGE, message);
         eventValues.put(Notification.EventColumns.PERSONAL, 1);
         eventValues.put(Notification.EventColumns.PROFILE_IMAGE_URI, profileImage);
