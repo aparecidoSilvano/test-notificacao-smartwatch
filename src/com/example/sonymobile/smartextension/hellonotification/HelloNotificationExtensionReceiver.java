@@ -39,8 +39,11 @@ import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * The extension receiver receives the extension intents and starts the
@@ -53,7 +56,14 @@ public class HelloNotificationExtensionReceiver extends BroadcastReceiver {
     	if(intent.getAction().equals("org.embeddedlab.firsthelp.MESSAGE_ABOUT_EXECUTION_EMERGENCY")){
     		// launch the notification.
     		Bundle b = intent.getExtras();
-    		addData(b.getString("RESULT_OF_EXECUTION"), context);
+    		
+    		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+    		boolean canLaunchNotification = pref.getBoolean("preference_key_receive", false);
+    		Log.e(HelloNotificationExtensionService.LOG_TAG, "pode lancar notificacao: " + canLaunchNotification);
+    		
+    		if(canLaunchNotification){
+    			addData(b.getString("RESULT_OF_EXECUTION"), context);
+    		}
     	}
     	
         Log.d(HelloNotificationExtensionService.LOG_TAG, "onReceive: " + intent.getAction());
@@ -86,7 +96,7 @@ public class HelloNotificationExtensionReceiver extends BroadcastReceiver {
         eventValues.put(Notification.EventColumns.PROFILE_IMAGE_URI, profileImage);
         eventValues.put(Notification.EventColumns.PUBLISHED_TIME, time);
         eventValues.put(Notification.EventColumns.SOURCE_ID, sourceId);
-
+        
         NotificationUtil.addEvent(context, eventValues);
     }
 }

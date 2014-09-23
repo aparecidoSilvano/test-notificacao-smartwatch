@@ -29,4 +29,6 @@
     <string name="preference_option_send">Send notifications</string>
     <string name="preference_key_send">preference_key_send</string>
     <string name="button_send_notification">Send notification</string>
+    <string name="preference_key_receive">preference_key_receive</string>
+    <string name="receive_notifications">Receber notificações</string>
 </resources>
