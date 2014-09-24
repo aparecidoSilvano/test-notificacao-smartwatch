@@ -141,26 +141,26 @@ public class HelloNotificationRegistrationInformation extends RegistrationInform
     public ContentValues getSourceRegistrationConfiguration(String extensionSpecificId) {
         ContentValues sourceValues = null;
 
-        String iconSource1 = ExtensionUtils.getUriString(mContext,
-                R.drawable.icn_30x30_message_notification);
-        String iconSource2 = ExtensionUtils.getUriString(mContext,
-                R.drawable.icn_18x18_message_notification);
-        String iconBw = ExtensionUtils.getUriString(mContext,
-                R.drawable.icn_18x18_black_white_message_notification);
-        String textToSpeech = mContext.getString(R.string.text_to_speech);
+//        String iconSource1 = ExtensionUtils.getUriString(mContext,
+//                R.drawable.icn_30x30_message_notification);
+//        String iconSource2 = ExtensionUtils.getUriString(mContext,
+//                R.drawable.icn_18x18_message_notification);
+//        String iconBw = ExtensionUtils.getUriString(mContext,
+//                R.drawable.icn_18x18_black_white_message_notification);
+//        String textToSpeech = mContext.getString(R.string.text_to_speech);
         sourceValues = new ContentValues();
-        sourceValues.put(Notification.SourceColumns.ENABLED, true);
-        sourceValues.put(Notification.SourceColumns.ICON_URI_1, iconSource1);
-        sourceValues.put(Notification.SourceColumns.ICON_URI_2, iconSource2);
-        sourceValues.put(Notification.SourceColumns.ICON_URI_BLACK_WHITE, iconBw);
-        sourceValues.put(Notification.SourceColumns.UPDATE_TIME, System.currentTimeMillis());
-        sourceValues.put(Notification.SourceColumns.NAME, mContext.getString(R.string.source_name));
+        sourceValues.put(Notification.SourceColumns.ENABLED, false);
+//        sourceValues.put(Notification.SourceColumns.ICON_URI_1, iconSource1);
+//        sourceValues.put(Notification.SourceColumns.ICON_URI_2, iconSource2);
+//        sourceValues.put(Notification.SourceColumns.ICON_URI_BLACK_WHITE, iconBw);
+//        sourceValues.put(Notification.SourceColumns.UPDATE_TIME, System.currentTimeMillis());
+//        sourceValues.put(Notification.SourceColumns.NAME, mContext.getString(R.string.source_name));
         sourceValues.put(Notification.SourceColumns.EXTENSION_SPECIFIC_ID, extensionSpecificId);
-        sourceValues.put(Notification.SourceColumns.PACKAGE_NAME, mContext.getPackageName());
-        sourceValues.put(Notification.SourceColumns.TEXT_TO_SPEECH, textToSpeech);
+//        sourceValues.put(Notification.SourceColumns.PACKAGE_NAME, mContext.getPackageName());
+//        sourceValues.put(Notification.SourceColumns.TEXT_TO_SPEECH, textToSpeech);
         // It is possible to connect actions to notifications. These will be
         // accessible when tapping the options menu on the SmartWatch 2.
-        sourceValues.put(Notification.SourceColumns.ACTION_1,
+        /*sourceValues.put(Notification.SourceColumns.ACTION_1,
                 mContext.getString(R.string.action_event_1));
         sourceValues.put(Notification.SourceColumns.ACTION_2,
                 mContext.getString(R.string.action_event_2));
@@ -180,7 +180,7 @@ public class HelloNotificationRegistrationInformation extends RegistrationInform
         // The API supports one colour per Source but SmartWatch 2 uses the
         // colour of the first source registered for all notifications.
         sourceValues.put(Notification.SourceColumns.COLOR,
-                mContext.getResources().getColor(R.color.smart_watch_2_text_color_orange));
+                mContext.getResources().getColor(R.color.smart_watch_2_text_color_orange));*/
         return sourceValues;
     }
 

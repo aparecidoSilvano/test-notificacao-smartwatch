@@ -37,11 +37,14 @@ import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -75,46 +78,10 @@ public class HelloNotificationPreferenceActivity extends PreferenceActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Load the preferences from an XML resource.
         addPreferencesFromResource(R.xml.preferences);
-
-        // Show Readme dialogue.
-        Preference preference = findPreference(getText(R.string.preference_key_read_me));
-        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                showDialog(DIALOG_READ_ME);
-                return true;
-            }
-        });
-
-        // Send a notification.
-        preference = findPreference(getString(R.string.preference_key_send));
-        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                addData();
-                return true;
-            }
-        });
-
-        // Show the Clear notifications dialogue.
-        preference = findPreference(getString(R.string.preference_key_clear));
-        preference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-            @Override
-            public boolean onPreferenceClick(Preference preference) {
-                showDialog(DIALOG_CLEAR);
-                return true;
-            }
-        });
         
-
-        // Remove preferences that are not supported by the accessory.
-        if (!ExtensionUtils.supportsHistory(getIntent())) {
-            preference = findPreference(getString(R.string.preference_key_clear));
-            getPreferenceScreen().removePreference(preference);
-        }
+        PreferenceManager.setDefaultValues(HelloNotificationPreferenceActivity.this, R.xml.preferences, true);
+        
     }
 
     @Override
